@@ -48,10 +48,22 @@ public class Example3
         int one = 1;
         int zero = 0;
 
+        try{
         Console.WriteLine(one / zero); 
-
+        }
+        catch (DivideByZeroException e)
+        {
+            Console.WriteLine(e.Message);
+        }
+        
         double dMinusOne = -1.0;
         double dZero = 0.0;
+        try{
         Console.WriteLine(dMinusOne / dZero); 
+        }
+        catch (DivideByZeroException e)
+        {
+            Console.WriteLine(e.Message);
+        }
     }
 }
