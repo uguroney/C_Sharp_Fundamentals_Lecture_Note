@@ -1,4 +1,4 @@
-# LecturesNotes[^1]
+# LecturesNotes
 DotNet and C# lecture notes and samples 
 
 ## 1. Introduction to Programming with .Net and C#
@@ -1491,4 +1491,4 @@ Object2 = new Employee();
 Cont...
 
 
-[^1] Prepared with the help of CoPilot
+<sub><sup>Prepared with the help of CoPilot</sup></sub>
