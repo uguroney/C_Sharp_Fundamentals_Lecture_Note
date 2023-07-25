@@ -1458,7 +1458,7 @@ namespace CalculatorApplication {
 }
 ```
 
-### 2.16. C# Dynamic Types
+### 2.16. C# Dynamic Types (USE WITH CAUTION)
 
 - C# provides another data type called dynamic type. The dynamic type variables are similar to object type variables. The difference between object and dynamic types is that the object type variables are resolved at compile time, whereas the dynamic type variables are resolved at run time.
 
