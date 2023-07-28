@@ -2139,4 +2139,472 @@ namespace CalculatorApplication {
 }
 ```
 
+### 4.3. C# and Object Oriented Programming
+
+- Object-oriented programming (OOP) is a programming paradigm based on the concept of "objects", which can contain data and code: data in the form of fields (often known as attributes or properties), and code, in the form of procedures (often known as methods).
+- A feature of objects is that an object's own procedures can access and often modify the data fields of itself (objects have a notion of this or self). In OOP, computer programs are designed by making them out of objects that interact with one another. OOP languages are diverse, but the most popular ones are class-based, meaning that objects are instances of classes, which also determine their types.
+
+- The following table lists the main principals of object-oriented programming −
+
+| Principal | Description |
+| --- | --- |
+| Class | A class is a blueprint for the object. We can think of class as an sketch (prototype) of a house. It contains all the details about the floors, doors, windows etc. Based on these descriptions we build the house. House is the object. As many houses can be made from a house's blueprint, we can create many objects from a class. An object is also called an instance of a class and the process of creating this object is called instantiation. |
+| Object | An object (instance) is an instantiation of a class. When class is defined, only the description for the object is defined. Therefore, no memory or storage is allocated. The example for the house is like a class. You have an idea about the type of the house, its construction, and the layout, but you don't know the actual address of the house. |
+| Inheritance | When a class inherits from another class, it takes all the fields and methods from it. Inheritance provides reusability of code. |
+| Polymorphism | Polymorphism is a concept by which we can perform a single action in different ways. Polymorphism is derived from 2 Greek words: poly and morphs. The word "poly" means many and "morphs" means forms. So polymorphism means many forms. There are two types of polymorphism: compile time polymorphism and runtime polymorphism. |
+| Abstraction | Data abstraction is the process of hiding certain details and showing only essential information to the user. Abstraction can be achieved with either abstract classes or interfaces (which you will learn more about in the next chapter). |
+| Encapsulation | Encapsulation is the mechanism of hiding of data implementation by restricting access to public methods. Instance variables are kept private and accessor methods are made public to achieve this. |
+
+
+#### 4.3.1. C# Inheritance
+
+- Inheritance is a process in which one object acquires all the properties and behaviors of its parent object automatically. In such way, you can reuse, extend or modify the attributes and behaviors which are defined in other class.
+
+- In C#, the class which inherits the members of another class is called derived class and the class whose members are inherited is called base class. The derived class is the specialized class for the base class.
+
+- The following example demonstrates how to use inheritance in a program −
+
+```csharp
+using System;
+
+// Base class
+class Animal {
+    public void Eat() {
+        Console.WriteLine("The animal is eating.");
+    }
+}
+
+// Derived class
+class Dog : Animal {
+    public void Bark() {
+        Console.WriteLine("The dog is barking.");
+    }
+}
+
+class Program {
+    static void Main(string[] args) {
+        Dog dog = new Dog();
+
+        dog.Eat(); // Output: The animal is eating.
+        dog.Bark(); // Output: The dog is barking.
+
+        Console.ReadKey();
+    }
+}
+```
+
+#### 4.3.2. C# Polimorphism
+
+- Polymorphism is the ability of an object to take on many forms. The most common use of polymorphism in OOP occurs when a parent class reference is used to refer to a child class object.
+
+- Any C# object that can pass more than one IS-A test is considered to be polymorphic. In C#, there are two ways to implement polymorphism. They are −
+
+  - Method overriding
+  - Method overloading
+
+- The following example demonstrates how to use polymorphism in a program −
+
+```csharp
+using System;
+
+// Base class
+class Animal {
+    public virtual void MakeSound() {
+        Console.WriteLine("The animal makes a sound.");
+    }
+}
+
+// Derived class
+class Dog : Animal {
+    public override void MakeSound() {
+        Console.WriteLine("The dog barks.");
+    }
+}
+
+// Derived class
+class Cat : Animal {
+    public override void MakeSound() {
+        Console.WriteLine("The cat meows.");
+    }
+}
+
+class Program {
+    static void Main(string[] args) {
+        Animal animal = new Animal();
+        Animal dog = new Dog();
+        Animal cat = new Cat();
+
+        animal.MakeSound(); // Output: The animal makes a sound.
+        dog.MakeSound(); // Output: The dog barks.
+        cat.MakeSound(); // Output: The cat meows.
+
+        Console.ReadKey();
+    }
+}
+
+```
+
+#### 4.3.3. C# Abstraction
+
+- Abstraction is one of the key concepts of object-oriented programming (OOP) languages. Its main goal is to handle complexity by hiding unnecessary details from the user.
+- The following example demonstrates how to use abstraction in a program −
+
+```csharp
+using System;
+
+// Abstract class
+abstract class Animal {
+    public abstract void MakeSound();
+}
+
+// Derived class
+class Dog : Animal {
+    public override void MakeSound() {
+        Console.WriteLine("The dog barks.");
+    }
+}
+
+// Derived class
+class Cat : Animal {
+    public override void MakeSound() {
+        Console.WriteLine("The cat meows.");
+    }
+}
+
+class Program {
+    static void Main(string[] args) {
+        Animal dog = new Dog();
+        Animal cat = new Cat();
+
+        dog.MakeSound(); // Output: The dog barks.
+        cat.MakeSound(); // Output: The cat meows.
+
+        Console.ReadKey();
+    }
+}
+```
+
+#### 4.2.4. C# Interfaces
+
+- An interface is a reference type in C#. It is similar to class. It is a collection of abstract methods. A class implements an interface, thereby inheriting the abstract methods of the interface.
+- An interface is like a contract. Any class that inherits the interface must implement all the members of the interface.
+- The following example demonstrates how to use interfaces in a program −
+
+```csharp
+using System;
+
+// Interface
+interface IAnimal {
+    void MakeSound();
+}
+
+// Class
+class Dog : IAnimal {
+    public void MakeSound() {
+        Console.WriteLine("The dog barks.");
+    }
+}
+
+// Class
+class Cat : IAnimal {
+    public void MakeSound() {
+        Console.WriteLine("The cat meows.");
+    }
+}
+
+class Program {
+    static void Main(string[] args) {
+        IAnimal dog = new Dog();
+        IAnimal cat = new Cat();
+
+        dog.MakeSound(); // Output: The dog barks.
+        cat.MakeSound(); // Output: The cat meows.
+
+        Console.ReadKey();
+    }
+}
+```
+
+##### 4.2.5.1 C# Multiple Interfaces
+
+- A class or struct can implement multiple interfaces. A class can inherit a base class and also implement one or more interfaces. The following example shows how to use multiple interfaces in a program −
+
+```csharp
+using System;
+
+// Interface
+interface IAnimal {
+    void MakeSound();
+}
+
+// Interface
+interface IMovable {
+    void Move();
+}
+
+// Class
+class Dog : IAnimal, IMovable {
+    public void MakeSound() {
+        Console.WriteLine("The dog barks.");
+    }
+
+    public void Move() {
+        Console.WriteLine("The dog runs.");
+    }
+}
+
+class Program {
+    static void Main(string[] args) {
+        Dog dog = new Dog();
+
+        dog.MakeSound(); // Output: The dog barks.
+        dog.Move(); // Output: The dog runs.
+
+        Console.ReadKey();
+    }
+}
+```
+
+##### 4.2.5.2 C# Interface Properties
+
+- Interfaces can have properties similar to that of classes. The following example shows how to use interface properties in a program −
+
+```csharp
+using System;
+
+// Interface
+interface IAnimal {
+    string Name { get; set; }
+    void MakeSound();
+}
+
+// Class
+class Dog : IAnimal {
+    public string Name { get; set; }
+
+    public void MakeSound() {
+        Console.WriteLine("The dog barks.");
+    }
+}
+
+class Program {
+    static void Main(string[] args) {
+        Dog dog = new Dog();
+        dog.Name = "Buddy";
+
+        Console.WriteLine("The dog's name is " + dog.Name);
+        dog.MakeSound(); // Output: The dog barks.
+
+        Console.ReadKey();
+    }
+}
+```
+
+##### 4.2.5.3 C# Difference between Abstract Classes and Interfaces
+
+- Abstract classes and interfaces are two of the most common constructs in object-oriented programming, and both serve to express abstractions in the type system of C#.
+- The following table lists the differences between abstract classes and interfaces −
+
+| Abstract Class | Interface |
+| -------------- | --------- |
+| An abstract class can provide complete, default code and/or just the details that have to be overridden. | An interface cannot provide any code at all,just the signature. |
+| In case of abstract class, a class may inherit several interfaces. | In case of interface, a class may inherit only one interface. |
+| An abstract class can have non-abstract members. | All interface members are abstract by default. |
+| An abstract class can declare and define constructor and destructor. | An interface cannot declare nor define constructors or destructors. |
+| An abstract class can contain fields that are not static and const, and those fields can have access modifiers. | All interface fields are automatically public, static, and const. |
+| An abstract class can contain fields, members, properties, etc. | An interface can contain only properties, methods, events, and indexers. |
+
+- The purpose of using an abstract class or an interface in C# is to achieve abstraction, which is one of the key concepts of object-oriented programming. Abstraction is the process of hiding unnecessary details from the user and providing a simplified view of the system.
+
+An abstract class is a class that cannot be instantiated and is used as a base class for other classes. It can contain both abstract and non-abstract methods, and it provides a default implementation for some methods that can be overridden by its derived classes. Abstract classes are used when we want to provide a base class for a family of related classes.
+
+An interface is a reference type that contains only abstract methods, properties, and events. It defines a contract that a class must implement, regardless of its inheritance hierarchy. A class can implement multiple interfaces, but it cannot inherit from multiple classes. Interfaces are used when we want to define a set of methods that a class must implement, regardless of its inheritance hierarchy.
+
+Both abstract classes and interfaces are used to achieve abstraction, but they have different purposes and usage scenarios. Abstract classes are used when we want to provide a default implementation of some methods, while interfaces are used when we want to define a contract that a class must implement.
+
+#### 4.2.6. C# Encapsulation
+
+- Encapsulation is one of the fundamental concepts in object-oriented programming (OOP). It describes the idea of bundling data and methods that work on that data within one unit, e.g., a class in C#.
+
+- This concept is also often used to hide the internal representation, or state, of an object from the outside.
+- The following example demonstrates how to use encapsulation in a program −
+
+```csharp
+using System;
+
+// Class
+class BankAccount {
+    private double balance;
+
+    public void Deposit(double amount) {
+        balance += amount;
+    }
+
+    public void Withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+        } else {
+            Console.WriteLine("Insufficient funds.");
+        }
+    }
+
+    public double GetBalance() {
+        return balance;
+    }
+}
+
+class Program {
+    static void Main(string[] args) {
+        BankAccount account = new BankAccount();
+
+        account.Deposit(1000);
+        Console.WriteLine("Balance: " + account.GetBalance()); // Output: Balance: 1000
+
+        account.Withdraw(500);
+        Console.WriteLine("Balance: " + account.GetBalance()); // Output: Balance: 500
+
+        account.Withdraw(1000);
+        Console.WriteLine("Balance: " + account.GetBalance()); // Output: Insufficient funds. Balance: 500
+
+        Console.ReadKey();
+    }
+}
+```
+#### 4.2.7. C# Class Methods
+
+- A method is a code block that contains a series of statements. A program causes the statements to be executed by calling the method and specifying any required method arguments. In C#, every executed instruction is performed in the context of a method.
+
+##### 4.2.7.1. Abstract Methods
+
+- An abstract method is a method that is declared without an implementation (without braces, and followed by a semicolon), like this −
+
+```csharp
+using System;
+
+// Abstract class
+abstract class Shape {
+    public abstract double GetArea();
+}
+
+// Derived class
+class Rectangle : Shape {
+    private double length;
+    private double width;
+
+    public Rectangle(double l, double w) {
+        length = l;
+        width = w;
+    }
+
+    public override double GetArea() {
+        return length * width;
+    }
+}
+
+class Program {
+    static void Main(string[] args) {
+        Rectangle rect = new Rectangle(5, 10);
+
+        Console.WriteLine("Area of rectangle: " + rect.GetArea()); // Output: Area of rectangle: 50
+
+        Console.ReadKey();
+    }
+}
+```
+
+##### 4.2.7.2. Virtual Methods
+
+- A virtual method is a method that can be redefined in derived classes. A virtual method has an implementation in a base class as well as derived classes. It is used to provide the specific implementation of the method.
+
+- The following example demonstrates how to use virtual methods in a program −
+
+```csharp
+using System;
+
+// Base class
+class Shape {
+    public virtual double GetArea() {
+        return 0;
+    }
+}
+
+// Derived class
+class Rectangle : Shape {
+    private double length;
+    private double width;
+
+    public Rectangle(double l, double w) {
+        length = l;
+        width = w;
+    }
+
+    public override double GetArea() {
+        return length * width;
+    }
+}
+
+class Program {
+    static void Main(string[] args) {
+        Shape shape = new Shape();
+        Rectangle rect = new Rectangle(5, 10);
+
+        Console.WriteLine("Area of shape: " + shape.GetArea()); // Output: Area of shape: 0
+        Console.WriteLine("Area of rectangle: " + rect.GetArea()); // Output: Area of rectangle: 50
+
+        Console.ReadKey();
+    }
+}
+```
+
+##### 4.2.7.3. override Keyword
+
+- The override keyword is used to extend or modify the abstract or virtual implementation of an inherited method, property, indexer, or event.
+- The following example demonstrates how to use the override keyword in a program −
+
+```csharp
+using System;
+
+// Base class
+class Shape {
+    public virtual double GetArea() {
+        return 0;
+    }
+}
+
+// Derived class
+class Rectangle : Shape {
+    private double length;
+    private double width;
+
+    public Rectangle(double l, double w) {
+        length = l;
+        width = w;
+    }
+
+    public override double GetArea() {
+        return length * width;
+    }
+}
+
+// Derived class
+class Square : Rectangle {
+    public Square(double side) : base(side, side) {
+    }
+}
+
+class Program {
+    static void Main(string[] args) {
+        Shape shape = new Shape();
+        Rectangle rect = new Rectangle(5, 10);
+        Square square = new Square(5);
+
+        Console.WriteLine("Area of shape: " + shape.GetArea()); // Output: Area of shape: 0
+        Console.WriteLine("Area of rectangle: " + rect.GetArea()); // Output: Area of rectangle: 50
+        Console.WriteLine("Area of square: " + square.GetArea()); // Output: Area of square: 25
+
+        Console.ReadKey();
+    }
+}
+```
+
 <sub><sup>Prepared with the help of CoPilot</sup></sub>
