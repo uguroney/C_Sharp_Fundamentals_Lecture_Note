@@ -2606,5 +2606,10 @@ class Program {
     }
 }
 ```
+## 5. Programming Principles
+
+### 5.1. SOLID
+
+*To Be Cont.*
 
 <sub><sup>Prepared with the help of CoPilot</sup></sub>
