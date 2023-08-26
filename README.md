@@ -1,5 +1,7 @@
 # LecturesNotes
 
+[Discord Server](https://discord.gg/z2DgB27V)
+
 DotNet and C# lecture notes and samples
 
 ## 1. Introduction to Programming with .Net and C#
